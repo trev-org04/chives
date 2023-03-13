@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "606092929326",
+    "project_id": "chives-a6aaf",
+    "storage_bucket": "chives-a6aaf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606092929326:android:deb3fd63fbb1e46e48b2bf",
+        "android_client_info": {
+          "package_name": "com.example.chives"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "606092929326-vg6db2ikkudanbg4mufptjbi6atnd1b9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmQgeJuhcplXcCRsEp9Qre7eDtMRcQJDs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "606092929326-vg6db2ikkudanbg4mufptjbi6atnd1b9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "606092929326-n5k5t6mqk4pi0402pcmsfr9d6dmfu54b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.chives"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
