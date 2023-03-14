@@ -91,20 +91,12 @@ class _OnboardingOneState extends State<OnboardingOne> {
                             width: 10,
                             height: 10,
                           ),
-                          Container(
-                            decoration: const BoxDecoration(
-                              color: offWhite,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(25.0)),
-                            ),
-                            width: 10,
-                            height: 10,
-                          ),
                         ],
                       )),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0.0, 0.0, 25.0, 0.0),
                     child: FloatingActionButton(
+                      elevation: 0,
                       backgroundColor: lightGreen,
                       foregroundColor: offWhite,
                       splashColor: offWhite,
