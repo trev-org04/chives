@@ -45,7 +45,6 @@ class _SignUpState extends State<SignUp> {
                     children: [
                       const Padding(
                         padding: EdgeInsets.fromLTRB(25.0, 80.0, 25.0, 10.0),
-                        // might need to change padding value for top and bottom to be dynamic
                         child: Text(
                           'LET\'S GET STARTED!',
                           textAlign: TextAlign.left,
@@ -58,7 +57,6 @@ class _SignUpState extends State<SignUp> {
                       ),
                       const Padding(
                         padding: EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 20.0),
-                        // might need to change padding value for top and bottom to be dynamic
                         child: Text(
                           'Only a few steps from the world of Chives!',
                           textAlign: TextAlign.left,
@@ -78,7 +76,6 @@ class _SignUpState extends State<SignUp> {
                                 color: offWhite,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(10.0))),
-                            // might need to change padding value for top and bottom to be dynamic
                             child: TextField(
                               onChanged: (value) {
                                 name = value;
@@ -107,7 +104,6 @@ class _SignUpState extends State<SignUp> {
                                 color: offWhite,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(10.0))),
-                            // might need to change padding value for top and bottom to be dynamic
                             child: TextField(
                               onChanged: (value) {
                                 email = value;
@@ -136,7 +132,6 @@ class _SignUpState extends State<SignUp> {
                                 color: offWhite,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(10.0))),
-                            // might need to change padding value for top and bottom to be dynamic
                             child: TextField(
                               onChanged: (value) {
                                 password = value;
@@ -166,7 +161,6 @@ class _SignUpState extends State<SignUp> {
                                 color: offWhite,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(10.0))),
-                            // might need to change padding value for top and bottom to be dynamic
                             child: TextField(
                               onChanged: (value) {
                                 repeatPassword = value;
@@ -199,7 +193,6 @@ class _SignUpState extends State<SignUp> {
                                     color: darkGreen,
                                     borderRadius: BorderRadius.all(
                                         Radius.circular(10.0))),
-                                // might need to change padding value for top and bottom to be dynamic
                                 child: TextButton(
                                   onPressed: () {
                                     createNewUser(email, password, name);
@@ -248,6 +241,7 @@ class _SignUpState extends State<SignUp> {
   }
 }
 
+// add home screen navigation after user creation
 createNewUser(String email, String password, String name) async {
   final auth = FirebaseAuth.instance;
   try {
@@ -261,6 +255,6 @@ createNewUser(String email, String password, String name) async {
     //   );
     // }
   } catch (e) {
-    print("Exceptions Occurred!" + e.toString());
+    print("Exceptions Occurred: " + e.toString());
   }
 }

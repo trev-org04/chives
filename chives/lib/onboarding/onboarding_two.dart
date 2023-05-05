@@ -38,7 +38,6 @@ class _OnboardingTwoState extends State<OnboardingTwo> {
             children: [
               const Padding(
                 padding: EdgeInsets.fromLTRB(25.0, 60.0, 25.0, 10.0),
-                // might need to change padding value for top and bottom to be dynamic
                 child: Text(
                   'DON\'T SWEAT IT',
                   textAlign: TextAlign.left,
@@ -51,9 +50,8 @@ class _OnboardingTwoState extends State<OnboardingTwo> {
               ),
               const Padding(
                 padding: EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 20.0),
-                // might need to change padding value for top and bottom to be dynamic
                 child: Text(
-                  'We’ve got you covered. Mexican? We’ve got it. Indian? We’ve got it. Caribbean? We’ve got it. Korean? We’ve got it. Got something else in mind? Trust us, we’ve got it. ',
+                  'We\'ve got you covered. Mexican? We\'ve got it. Indian? We\'ve got it. Caribbean? We\'ve got it. Korean? We\'ve got it. Got something else in mind? Trust us, we\'ve got it. ',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                       color: background, fontSize: 15.0, fontFamily: 'HM Sans'),
@@ -66,7 +64,6 @@ class _OnboardingTwoState extends State<OnboardingTwo> {
                   Padding(
                       padding:
                           const EdgeInsets.fromLTRB(25.0, 20.0, 25.0, 20.0),
-                      // might need to change padding value for top and bottom to be dynamic
                       child: Row(
                         children: [
                           Container(

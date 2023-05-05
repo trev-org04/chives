@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:chives/constants.dart';
 import 'explore.dart';
@@ -17,7 +16,7 @@ class _ManagerState extends State<Manager> {
 
   final pages = [
     const Explore(),
-    const Home(),
+    Home(),
     const Profile(),
   ];
   @override
@@ -35,7 +34,7 @@ class _ManagerState extends State<Manager> {
             child: IconButton(
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
-              enableFeedback: true,
+              enableFeedback: false,
               onPressed: () {
                 setState(() {
                   pageIndex = 0;
@@ -61,7 +60,7 @@ class _ManagerState extends State<Manager> {
             child: IconButton(
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
-              enableFeedback: true,
+              enableFeedback: false,
               onPressed: () {
                 setState(() {
                   pageIndex = 1;
@@ -87,7 +86,7 @@ class _ManagerState extends State<Manager> {
             child: IconButton(
               splashColor: Colors.transparent,
               highlightColor: Colors.transparent,
-              enableFeedback: true,
+              enableFeedback: false,
               onPressed: () {
                 setState(() {
                   pageIndex = 2;
@@ -109,16 +108,5 @@ class _ManagerState extends State<Manager> {
         ]),
       ),
     );
-  }
-}
-
-signInUser(String email, String password) async {
-  final auth = FirebaseAuth.instance;
-  try {
-    final currentUser =
-        await auth.signInWithEmailAndPassword(email: email, password: password);
-    print(currentUser.toString());
-  } catch (e) {
-    print(e.toString());
   }
 }

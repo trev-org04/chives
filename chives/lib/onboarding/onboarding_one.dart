@@ -38,7 +38,6 @@ class _OnboardingOneState extends State<OnboardingOne> {
             children: [
               const Padding(
                 padding: EdgeInsets.fromLTRB(25.0, 60.0, 25.0, 10.0),
-                // might need to change padding value for top and bottom to be dynamic
                 child: Text(
                   'TIRED OF COOKBOOKS?',
                   textAlign: TextAlign.left,
@@ -51,9 +50,8 @@ class _OnboardingOneState extends State<OnboardingOne> {
               ),
               const Padding(
                 padding: EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 20.0),
-                // might need to change padding value for top and bottom to be dynamic
                 child: Text(
-                  'We are too. That’s why we made Chives, the best cookbook you’ll ever have and it’s right in your pocket. Chives provides you with high-quality recipes for whatever you’re feeling.',
+                  'We are too. That\'s why we made Chives, the best cookbook you\'ll ever have and it\'s right in your pocket. Chives provides you with high-quality recipes for whatever you\'re feeling.',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                       color: background, fontSize: 15.0, fontFamily: 'HM Sans'),
@@ -66,7 +64,6 @@ class _OnboardingOneState extends State<OnboardingOne> {
                   Padding(
                       padding:
                           const EdgeInsets.fromLTRB(25.0, 20.0, 25.0, 20.0),
-                      // might need to change padding value for top and bottom to be dynamic
                       child: Row(
                         children: [
                           Container(

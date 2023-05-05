@@ -42,7 +42,6 @@ class _LandingState extends State<Landing> {
                 children: [
                   const Padding(
                     padding: EdgeInsets.fromLTRB(25.0, 60.0, 25.0, 10.0),
-                    // might need to change padding value for top and bottom to be dynamic
                     child: Text(
                       'WELCOME!',
                       textAlign: TextAlign.left,
@@ -55,7 +54,6 @@ class _LandingState extends State<Landing> {
                   ),
                   const Padding(
                     padding: EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 20.0),
-                    // might need to change padding value for top and bottom to be dynamic
                     child: Text(
                       'Dive into the world of Chives today!',
                       textAlign: TextAlign.left,
@@ -78,7 +76,6 @@ class _LandingState extends State<Landing> {
                                 color: darkGreen,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(10.0))),
-                            // might need to change padding value for top and bottom to be dynamic
                             child: TextButton(
                               onPressed: () {
                                 Navigator.of(context)
@@ -108,7 +105,6 @@ class _LandingState extends State<Landing> {
                                 color: offWhite,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(10.0))),
-                            // might need to change padding value for top and bottom to be dynamic
                             child: TextButton(
                               onPressed: () {
                                 Navigator.of(context)

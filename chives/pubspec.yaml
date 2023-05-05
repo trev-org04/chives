@@ -1,5 +1,5 @@
 name: chives
-description: A new Flutter project.
+description: A modern app for cooking.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -30,6 +30,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  http: '>=0.13.0 <0.14.0'
+  intl: '^0.17.0'
+  meta: '^1.1.8'
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -38,6 +41,8 @@ dependencies:
   firebase_core: ^2.7.1
   firebase_auth: ^4.2.9
   cloud_firestore: ^4.4.3
+  # openapi:
+  #   git: https://github.com/trev-org04/spoonacular-dart.git
 
 dev_dependencies:
   flutter_test:
@@ -83,6 +88,15 @@ flutter:
     - family: Proxima Nova
       fonts:
         - asset: assets/fonts/Proxima Nova Alt Black.ttf
+    - family: Proxima Nova Bold
+      fonts:
+        - asset: assets/fonts/Proxima Nova Bold.ttf      
+    - family: Proxima Nova ExtraBold
+      fonts:
+        - asset: assets/fonts/Proxima Nova ExtraBold.ttf   
+    - family: Proxima Nova SemiBold
+      fonts:
+        - asset: assets/fonts/Proxima Nova SemiBold.ttf        
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
