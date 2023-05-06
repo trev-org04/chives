@@ -1,7 +1,4 @@
-import 'dart:ffi';
-
 import 'package:chives/application/api/api_service.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:chives/constants.dart';
 
@@ -87,7 +84,7 @@ class _ExploreState extends State<Explore> {
                 ],
               )),
           Padding(
-            padding: const EdgeInsets.fromLTRB(25.0, 35.0, 25.0, 0.0),
+            padding: const EdgeInsets.fromLTRB(25.0, 30.0, 25.0, 0.0),
             child: Container(
                 width: MediaQuery.of(context).size.width - 50,
                 height: 45,

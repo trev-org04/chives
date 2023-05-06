@@ -29,7 +29,7 @@ class _ManagerState extends State<Manager> {
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           Container(
             decoration: BoxDecoration(
-                color: pageIndex == 0 ? offWhite : darkGreen,
+                color: pageIndex == 0 ? lightGreen : darkGreen,
                 borderRadius: const BorderRadius.all(Radius.circular(100))),
             child: IconButton(
               splashColor: Colors.transparent,
@@ -55,7 +55,7 @@ class _ManagerState extends State<Manager> {
           ),
           Container(
             decoration: BoxDecoration(
-                color: pageIndex == 1 ? offWhite : darkGreen,
+                color: pageIndex == 1 ? lightGreen : darkGreen,
                 borderRadius: const BorderRadius.all(Radius.circular(100))),
             child: IconButton(
               splashColor: Colors.transparent,
@@ -81,7 +81,7 @@ class _ManagerState extends State<Manager> {
           ),
           Container(
             decoration: BoxDecoration(
-                color: pageIndex == 2 ? offWhite : darkGreen,
+                color: pageIndex == 2 ? lightGreen : darkGreen,
                 borderRadius: const BorderRadius.all(Radius.circular(100))),
             child: IconButton(
               splashColor: Colors.transparent,
