@@ -1,6 +1,8 @@
+import 'package:chives/application/manager.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:chives/constants.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -195,7 +197,9 @@ class _SignUpState extends State<SignUp> {
                                         Radius.circular(10.0))),
                                 child: TextButton(
                                   onPressed: () {
-                                    createNewUser(email, password, name);
+                                    createNewUser(email, password, name).then(
+                                        (value) => Navigator.of(context)
+                                            .push(createRoute()));
                                   },
                                   child: const Text(
                                     'Sign Up',
@@ -241,20 +245,40 @@ class _SignUpState extends State<SignUp> {
   }
 }
 
-// add home screen navigation after user creation
-createNewUser(String email, String password, String name) async {
+Route createRoute() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => const Manager(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(1.0, 0.0);
+      const end = Offset.zero;
+      const curve = Curves.ease;
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
+}
+
+// form validation needs to be done
+Future<int> createNewUser(String email, String password, String name) async {
   final auth = FirebaseAuth.instance;
   try {
-    final newuser = await auth.createUserWithEmailAndPassword(
+    final newUser = await auth.createUserWithEmailAndPassword(
         email: email, password: password);
-    await newuser.user?.updateDisplayName(name);
-    // if (newuser != null) {
-    //   Navigator.push(
-    //     context,
-    //     MaterialPageRoute(builder: (context) => MyLoginPage()),
-    //   );
-    // }
+    await newUser.user?.updateDisplayName(name);
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(newUser.user?.uid)
+        .collection('recipes')
+        .doc()
+        .set({
+      'recipe': 000000,
+    });
+    return 0;
   } catch (e) {
     print("Exceptions Occurred: " + e.toString());
+    return -1;
   }
 }

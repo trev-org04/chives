@@ -395,6 +395,14 @@ class _RecipeCardListState extends State<RecipeCardList> {
     return capTitle;
   }
 
+  String reduceTitle(String title) {
+    String reducedTitle = title;
+    if (title.length >= 27) {
+      reducedTitle = '${title.substring(0, 28)}...';
+    }
+    return reducedTitle;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -430,7 +438,8 @@ class _RecipeCardListState extends State<RecipeCardList> {
                                   padding: const EdgeInsets.fromLTRB(
                                       15.0, 15.0, 0.0, 15.0),
                                   child: Text(
-                                    capitalizeItemTitle(element['title']),
+                                    reduceTitle(
+                                        capitalizeItemTitle(element['title'])),
                                     style: const TextStyle(
                                         color: background,
                                         fontSize: 18.0,

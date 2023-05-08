@@ -21,8 +21,13 @@ class RecipeList {
     return RecipeList(recipeList: list);
   }
 
-  factory RecipeList.mapFromMap(Map<String, dynamic> map) {
+  factory RecipeList.mapFromMapCategory(Map<String, dynamic> map) {
     List<dynamic> list = map['results'];
+    return RecipeList(recipeList: list);
+  }
+
+  factory RecipeList.mapFromMapRandom(Map<String, dynamic> map) {
+    List<dynamic> list = map['recipes'];
     return RecipeList(recipeList: list);
   }
 }
@@ -51,8 +56,10 @@ class ApiService {
       var response = await http.get(uri, headers: headers);
       Map<String, dynamic> data = await json.decode(response.body);
       Recipe recipe = Recipe.mapFromMap(data);
+      print("success");
       return recipe;
     } catch (err) {
+      print("failure");
       throw err.toString();
     }
   }
@@ -100,10 +107,36 @@ class ApiService {
     };
 
     try {
-      print(uri);
       var response = await http.get(uri, headers: headers);
       Map<String, dynamic> data = await json.decode(response.body);
-      RecipeList recipeList = RecipeList.mapFromMap(data);
+      RecipeList recipeList = RecipeList.mapFromMapCategory(data);
+      print("success");
+      return recipeList;
+    } catch (err) {
+      print("failure");
+      throw err.toString();
+    }
+  }
+
+  Future<RecipeList> getRandomRecipes() async {
+    Map<String, String> parameters = {
+      'number': '10',
+      'apiKey': apiKey,
+    };
+    Uri uri = Uri.https(
+      baseURL,
+      '/recipes/random',
+      parameters,
+    );
+    Map<String, String> headers = {
+      HttpHeaders.contentTypeHeader: 'application/json',
+    };
+
+    try {
+      print('uri: ' + uri.toString());
+      var response = await http.get(uri, headers: headers);
+      Map<String, dynamic> data = await json.decode(response.body);
+      RecipeList recipeList = RecipeList.mapFromMapRandom(data);
       print("success");
       return recipeList;
     } catch (err) {
