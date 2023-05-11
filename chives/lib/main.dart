@@ -19,7 +19,7 @@ void main() async {
 
 class Chives extends StatelessWidget {
   final bool isLoggedIn;
-  Chives({required this.isLoggedIn});
+  const Chives({required this.isLoggedIn, super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

@@ -38,7 +38,7 @@ class ApiService {
   final String baseURL = "api.spoonacular.com";
   static const String apiKey = "";
 
-  Future<Recipe> fetchRecipe(String id) async {
+  Future<Recipe> getRecipe(String id) async {
     Map<String, String> parameters = {
       'includeNutrition': 'false',
       'apiKey': apiKey,

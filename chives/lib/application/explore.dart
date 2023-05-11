@@ -1,4 +1,5 @@
 import 'package:chives/application/api/api_service.dart';
+import 'package:chives/application/recipe_information.dart';
 import 'package:flutter/material.dart';
 import 'package:chives/constants.dart';
 
@@ -16,21 +17,6 @@ class _ExploreState extends State<Explore> {
   String headingText = "Categories";
   @override
   Widget build(BuildContext context) {
-    // Future<Recipe> r = api.fetchRecipe("296687");
-    // r.then(
-    //   (recipe) {
-    //     print(recipe);
-    //     int i = 0;
-    //     recipe.recipeInfoMap.forEach((key, value) {
-    //       print("key" + i.toString() + ": " + key);
-    //       if (key.compareTo("title") == 0 || key.compareTo("summary") == 0) {
-    //         print(value);
-    //       }
-    //       i++;
-    //     });
-    //   },
-    // );
-
     void searchForRecipes(String query) {
       ApiService api = ApiService.instance;
       Future<RecipeList> r = api.getRecipeList(query);
@@ -355,114 +341,92 @@ class RecipeCardList extends StatefulWidget {
 }
 
 class _RecipeCardListState extends State<RecipeCardList> {
-  String capitalizeItemTitle(String title) {
-    String capTitle = "";
-    int initIndex = 0, index = 0;
-    List<String> words = [], newCapWords = [];
+  Route goToRecipe(int id) {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          RecipeInfo(id: id),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(1.0, 0.0);
+        const end = Offset.zero;
+        const curve = Curves.ease;
 
-    while (index < title.length) {
-      String sub = title.substring(index, index + 1);
-      if (sub == " " || index == title.length - 1) {
-        if (initIndex == 0) {
-          words.add(title.substring(initIndex, index + 1));
-        } else {
-          words.add(title.substring(initIndex - 1, index + 1));
-        }
-        initIndex = index + 1;
-      }
-      index++;
-    }
-    for (String word in words) {
-      Set<String> capWords = {'bbq', 'blt'};
-      if (word.substring(0, 1) == " ") {
-        word = word.substring(1);
-      }
-      if (capWords.contains(word)) {
-        newCapWords.add(word.toUpperCase());
-      } else {
-        String firstChar = word.substring(0, 1);
-        String endOfWord = word.substring(1);
-        newCapWords.add(firstChar.toUpperCase() + endOfWord);
-      }
-    }
-    for (String word in newCapWords) {
-      if (word.substring(word.length - 1) == " ") {
-        capTitle = "$capTitle$word";
-      } else {
-        capTitle = "$capTitle$word ";
-      }
-    }
-    return capTitle;
-  }
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
-  String reduceTitle(String title) {
-    String reducedTitle = title;
-    if (title.length >= 27) {
-      reducedTitle = '${title.substring(0, 28)}...';
-    }
-    return reducedTitle;
+        return SlideTransition(
+          position: animation.drive(tween),
+          child: child,
+        );
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Column(
         children: recipeList
-            .map((element) => Padding(
-                  padding: const EdgeInsets.fromLTRB(25.0, 15.0, 25.0, 15.0),
-                  child: Container(
-                      width: MediaQuery.of(context).size.width - 50,
-                      decoration: const BoxDecoration(
-                          color: offWhite,
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(10.0))),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          ClipRRect(
-                            borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(10.0),
-                                topRight: Radius.circular(10.0)),
-                            child: Image.network(
-                              "https://spoonacular.com/recipeImages/${element['id']}-312x150.jpg",
-                              width: MediaQuery.of(context).size.width + 50,
-                              fit: BoxFit.fitWidth,
+            .map((element) => GestureDetector(
+                  onTap: () {
+                    Navigator.of(context)
+                        .pushReplacement(goToRecipe(element['id']));
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(25.0, 15.0, 25.0, 15.0),
+                    child: Container(
+                        width: MediaQuery.of(context).size.width - 50,
+                        decoration: const BoxDecoration(
+                            color: offWhite,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10.0))),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            ClipRRect(
+                              borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(10.0),
+                                  topRight: Radius.circular(10.0)),
+                              child: Image.network(
+                                "https://spoonacular.com/recipeImages/${element['id']}-312x150.jpg",
+                                width: MediaQuery.of(context).size.width + 50,
+                                fit: BoxFit.fitWidth,
+                              ),
                             ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                flex: 8,
-                                child: Padding(
-                                  padding: const EdgeInsets.fromLTRB(
-                                      15.0, 15.0, 0.0, 15.0),
-                                  child: Text(
-                                    reduceTitle(
-                                        capitalizeItemTitle(element['title'])),
-                                    style: const TextStyle(
-                                        color: background,
-                                        fontSize: 18.0,
-                                        fontFamily: 'Proxima Nova Bold'),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                  flex: 8,
+                                  child: Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                        15.0, 15.0, 0.0, 15.0),
+                                    child: Text(
+                                      reduceTitle(capitalizeItemTitle(
+                                          element['title'])),
+                                      style: const TextStyle(
+                                          color: background,
+                                          fontSize: 18.0,
+                                          fontFamily: 'Proxima Nova Bold'),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              const Expanded(
-                                flex: 1,
-                                child: Padding(
-                                  padding: EdgeInsets.fromLTRB(
-                                      0.0, 15.0, 15.0, 15.0),
-                                  child: Icon(
-                                    Icons.arrow_forward_ios,
-                                    size: 18.0,
-                                    color: background,
+                                const Expanded(
+                                  flex: 1,
+                                  child: Padding(
+                                    padding: EdgeInsets.fromLTRB(
+                                        0.0, 15.0, 15.0, 15.0),
+                                    child: Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 18.0,
+                                      color: background,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          )
-                        ],
-                      )),
+                              ],
+                            )
+                          ],
+                        )),
+                  ),
                 ))
             .toList());
   }
