@@ -22,7 +22,8 @@ class _SignUpState extends State<SignUp> {
       backgroundColor: textWhite,
       body: ListView(children: [
         Container(
-          height: MediaQuery.of(context).size.height * 1.15,
+          padding: const EdgeInsets.only(bottom: 25.0),
+          height: MediaQuery.of(context).size.height * 1.25,
           decoration: const BoxDecoration(color: textWhite),
           child: Stack(
             children: [
@@ -37,8 +38,8 @@ class _SignUpState extends State<SignUp> {
                     child: Column(children: [
                       Image.asset(
                         'assets/images/signUp.png',
-                        height: 400 * .9,
-                        width: 390 * .9,
+                        height: 400 * .8,
+                        width: 390 * .8,
                       ),
                     ]),
                   ),
@@ -218,7 +219,7 @@ class _SignUpState extends State<SignUp> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).size.height * .15),
+                    bottom: MediaQuery.of(context).size.height * .2),
                 child: Center(
                   child: Container(
                     height: 110,

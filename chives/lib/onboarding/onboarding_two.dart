@@ -14,21 +14,21 @@ class _OnboardingTwoState extends State<OnboardingTwo> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: textWhite,
-      body: Column(
+      body: ListView(
         children: [
           Container(
             decoration: const BoxDecoration(
               color: mediumGreen,
             ),
-            height: MediaQuery.of(context).size.height * 0.6,
+            height: MediaQuery.of(context).size.height * 0.65,
             width: MediaQuery.of(context).size.width,
             child: Column(children: [
               Padding(
                 padding: const EdgeInsets.only(top: 25.0),
                 child: Image.asset(
                   'assets/images/onboardingTwo.png',
-                  height: 400,
-                  width: 390,
+                  height: 390,
+                  width: 380,
                 ),
               ),
             ]),

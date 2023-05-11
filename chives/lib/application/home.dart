@@ -59,7 +59,7 @@ class Home extends StatelessWidget {
               ),
               SizedBox(
                   width: MediaQuery.of(context).size.width - 25,
-                  height: 220,
+                  height: 210,
                   child: const FavoriteCarousel()),
               const Padding(
                 padding: EdgeInsets.fromLTRB(25, 30, 0, 0),
@@ -73,7 +73,7 @@ class Home extends StatelessWidget {
               ),
               SizedBox(
                   width: MediaQuery.of(context).size.width - 25,
-                  height: 246,
+                  height: 238,
                   child: const RecommendedCarousel()),
             ],
           )
@@ -349,7 +349,7 @@ class _RecommendedCardState extends State<RecommendedCard> {
                         alignment: const Alignment(1.0, 0.0),
                         child: Padding(
                           padding:
-                              const EdgeInsets.fromLTRB(0.0, 95.0, 15.0, 10.0),
+                              const EdgeInsets.fromLTRB(0.0, 85.0, 15.0, 10.0),
                           child: Container(
                               decoration: const BoxDecoration(
                                   color: offWhite,

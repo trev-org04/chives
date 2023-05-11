@@ -232,7 +232,7 @@ class _RecipeInfoState extends State<RecipeInfo> {
                           ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height - 50,
+                          height: MediaQuery.of(context).size.height - 100,
                           child: GridView.builder(
                               padding: const EdgeInsets.fromLTRB(
                                   25.0, 0.0, 0.0, 0.0),
@@ -257,25 +257,32 @@ class _RecipeInfoState extends State<RecipeInfo> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.stretch,
                                         children: [
-                                          Stack(
-                                              alignment: Alignment.topCenter,
-                                              children: [
-                                                Container(
-                                                  width: MediaQuery.of(context)
-                                                      .size
-                                                      .width,
-                                                  height: 100,
-                                                  decoration: const BoxDecoration(
+                                          ClipRRect(
+                                            borderRadius:
+                                                const BorderRadius.only(
+                                                    topLeft:
+                                                        Radius.circular(10.0),
+                                                    topRight:
+                                                        Radius.circular(10.0)),
+                                            child: Stack(
+                                                alignment: Alignment.topCenter,
+                                                children: [
+                                                  Container(
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                            .size
+                                                            .width,
+                                                    height: 100,
+                                                    decoration:
+                                                        const BoxDecoration(
                                                       color: white,
-                                                      borderRadius:
-                                                          BorderRadius.all(
-                                                              Radius.circular(
-                                                                  10.0))),
-                                                ),
-                                                Image.network(
-                                                  "https://spoonacular.com/cdn/ingredients_100x100/${ingredients[1][position]}",
-                                                ),
-                                              ]),
+                                                    ),
+                                                  ),
+                                                  Image.network(
+                                                    "https://spoonacular.com/cdn/ingredients_100x100/${ingredients[1][position]}",
+                                                  ),
+                                                ]),
+                                          ),
                                           Padding(
                                             padding: const EdgeInsets.only(
                                                 bottom: 8.0),
@@ -362,7 +369,7 @@ class _CustomTabBarState extends State<CustomTabBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 45,
+      height: 60,
       decoration: BoxDecoration(
         border: const Border(bottom: BorderSide(color: inputColor, width: 2.0)),
         color: index == 0
@@ -407,7 +414,7 @@ class _CustomTabBarState extends State<CustomTabBar> {
           ),
           Tab(
             child: Text(
-              'Instructions',
+              'Method',
               style: TextStyle(
                 fontSize: 15.0,
                 fontFamily: 'HM Sans',

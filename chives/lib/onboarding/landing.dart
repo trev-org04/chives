@@ -28,11 +28,11 @@ class _LandingState extends State<Landing> {
                 width: MediaQuery.of(context).size.width,
                 child: Column(children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 25.0),
+                    padding: const EdgeInsets.only(top: 15.0),
                     child: Image.asset(
                       'assets/images/landing.png',
-                      height: 400,
-                      width: 390,
+                      height: 370,
+                      width: 360,
                     ),
                   ),
                 ]),
