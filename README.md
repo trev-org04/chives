@@ -5,7 +5,7 @@ Chives is a modern mobile application that allows you to find the perfect recipe
 
 ## Tech Stack
 - Framework: [Flutter](https://flutter.dev/)
-- Storage: [Google Firebase](https://firebase.google.com/)
+- Storage: [Cloud Firestore](https://firebase.google.com/docs/firestore/)
 - API: [Spoonacular](https://spoonacular.com/food-api)
 
 [Video Walkthrough](https://youtu.be/YCc_zXKfrmo)
