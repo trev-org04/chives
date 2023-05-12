@@ -8,3 +8,5 @@ Chives is a modern mobile application that allows you to find the perfect recipe
 - Storage: [Google Firebase](https://firebase.google.com/)
 - API: [Spoonacular](https://spoonacular.com/food-api)
 
+[Video Walkthrough](https://youtu.be/YCc_zXKfrmo)
+
