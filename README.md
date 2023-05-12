@@ -9,5 +9,6 @@ Chives is a modern mobile application that allows you to find the perfect recipe
 - API: [Spoonacular](https://spoonacular.com/food-api)
 
 [Video Walkthrough](https://youtu.be/YCc_zXKfrmo)
+
 [Design Document](https://drive.google.com/file/d/1uxozLnEDPS7sSifgXUKKhNguborvGRB_/view?usp=sharing)
 
