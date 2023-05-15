@@ -12,3 +12,5 @@ Chives is a modern mobile application that allows you to find the perfect recipe
 
 [Design Document](https://drive.google.com/file/d/1uxozLnEDPS7sSifgXUKKhNguborvGRB_/view?usp=sharing)
 
+[APK Download](https://drive.google.com/file/d/1jvaYBtfaRvOWkI2RssiruCU0zCALITED/view?usp=share_link)
+
